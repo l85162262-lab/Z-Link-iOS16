@@ -72,7 +72,7 @@ SDK 字段（`sdk 27.2.0`）保留原值，不影响安装与运行。
 │   └── scan_ios17_deps.py               # 扫描 IPA 里的 iOS 17+ 符号
 ```
 
-补丁包 IPA 以 Release 附件形式发布（避免 31 MB 进 git 历史），在 [Releases](../../releases) 页下载 `Z-Link-0.7.7-iOS16.7.ipa`。
+补丁包 IPA 以 Release 附件形式发布（避免 31 MB 进 git 历史），在 [Releases](https://github.com/l85162262-lab/Z-Link-iOS16/releases) 页下载 `Z-Link-0.7.7-iOS16.7.ipa`。
 
 ## 使用工具
 
