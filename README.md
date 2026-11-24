@@ -56,7 +56,7 @@ SDK 字段（`sdk 27.2.0`）保留原值，不影响安装与运行。
 1. 把 Xcode 工程的 `IPHONEOS_DEPLOYMENT_TARGET` 设为 `16.7`（App 与两个 extension target 都要改）；
 2. 按 [docs/compatibility-report.md](docs/compatibility-report.md) 替换 5 处 API（含可直接粘贴的 Swift 代码）；
 3. 全工程搜索并清掉 `#available(iOS 17, *)` 之外的隐式 17+ 用法；
-4. 用 [.github/workflows/build-ios16.yml](.github/workflows/build-ios16.yml) 在 macOS runner 上出无签名 IPA（把工程放进 `src/` 即可）。
+4. 按 [docs/build-from-source.md](docs/build-from-source.md) 在 GitHub Actions 的 macOS runner 上出无签名 IPA（把工程放进 `src/` 即可，含现成 workflow）。
 
 ## 仓库结构
 
@@ -65,11 +65,11 @@ SDK 字段（`sdk 27.2.0`）保留原值，不影响安装与运行。
 ├── README.md
 ├── CHANGELOG.md
 ├── docs/
-│   └── compatibility-report.md          # 依赖扫描结果 + iOS 16 替代代码
+│   ├── compatibility-report.md          # 依赖扫描结果 + iOS 16 替代代码
+│   └── build-from-source.md             # 源码构建 + GitHub Actions workflow
 ├── tools/
 │   ├── lower_minos.py                   # 任意 IPA 降部署目标（可复用）
 │   └── scan_ios17_deps.py               # 扫描 IPA 里的 iOS 17+ 符号
-└── .github/workflows/build-ios16.yml    # 源码就位后的无签名构建流水线
 ```
 
 补丁包 IPA 以 Release 附件形式发布（避免 31 MB 进 git 历史），在 [Releases](../../releases) 页下载 `Z-Link-0.7.7-iOS16.7.ipa`。
